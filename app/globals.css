@@ -1,0 +1,520 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap");
+
+html,
+body {
+  font-family: "Manrope", sans-serif;
+}
+
+@layer components {
+  .layout-background {
+    background-image: url("../assets/bg/bgdesk.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  @media screen and (max-width: 640px) {
+    iframe {
+      margin-top: 2.5rem;
+    }
+
+    .layout-background {
+      background-image: url("../assets/bg/bgdesk.svg");
+    }
+  }
+
+  .blueButton {
+    @apply rounded-[8px] bg-[#0D3276] px-[20px] py-[10px] text-white;
+  }
+
+  .activeButton {
+    @apply rounded-[8px] bg-[#F0F3FF] px-[16px] py-[4px] text-[14px] font-[700] text-[#003CB1] md:text-[16px];
+  }
+
+  .inActiveButton {
+    @apply w-full max-w-[93px] rounded-[8px] bg-[#E8E8E8] px-[16px] py-[4px] font-[700] text-[16pxp] text-label-gray;
+  }
+
+  .jobCard {
+    @apply rounded-[8px] border-[1px] border-[#E7EBF1] p-[12px] md:p-[24px];
+  }
+
+  .customInput {
+    @apply mt-[4px] h-[56px] w-full items-center rounded-[8px] border border-[#D0D9E9] px-3 py-2;
+  }
+
+  .customLabel {
+    @apply text-[14px] font-[400] leading-[24px] text-[#7C7C7C] md:text-[16px];
+  }
+
+  .activeBorder {
+    @apply rounded-[8px] border-2 transition-[border] duration-300 ease-out hover:border-primary;
+  }
+
+  .reviewCardValue {
+    @apply text-[16px] font-[700] leading-[24px] text-[#121212];
+  }
+
+  .reviewCardLabel {
+    @apply mt-[4px] text-[14px] font-[500] leading-[21px] text-[#A2A2A2];
+  }
+
+  .customStarDiv {
+    @apply flex h-[56px] w-fit cursor-pointer items-center rounded-[8px] border border-[#D0D9E9] p-[16px] shadow-custom;
+  }
+
+  .footerInput {
+    @apply bg-transparent border-[1px] border-[#E7EBF1] rounded-[8px] p-[16px] w-full;
+  }
+
+  .footerNav {
+    @apply text-[#E8E8E8] font-[400] text-[20px] cursor-pointer;
+  }
+
+  .blogFilterTag {
+    @apply rounded-[16px] px-[16px] py-[6px]  text-[16px] font-[500] cursor-pointer;
+  }
+}
+
+@layer base {
+  :root {
+    --global-letter-spacing: -0.02em;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background tracking--2pct text-foreground;
+  }
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+/* .toast-success {
+  background-color: #d1fae5; 
+  color: #065f46; 
+  border-left: 4px solid #10b981; 
+} */
+
+.hide-scrollbar1 {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.hide-scrollbar1::-webkit-scrollbar {
+  display: none;
+}
+
+.dollar {
+  position: relative;
+  padding-left: 20px;
+}
+
+.dollar::before {
+  content: "$";
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #000; /* Adjust the color as needed */
+  pointer-events: none;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                              Hide ---Scrollbar                               */
+/* width */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #e7ebf1;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+/* -------------------------------------------------------------------------- */
+
+/* styles fro rich text description view */
+.my-container h1 {
+  font-size: 24px;
+}
+
+.my-container h4 {
+  font-size: 20px;
+}
+
+.my-container p {
+  font-size: 16px;
+}
+
+/* Hide scrollbar by default */
+.overflow-hidden-scrollbar::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; /* Optional: just to ensure the background is transparent */
+}
+
+/* Make scrollbar visible when scrolling */
+.overflow-hidden-scrollbar.scrolling::-webkit-scrollbar {
+  width: 4px;
+
+  background: #f5f5f5; /* Optional: scrollbar track color */
+}
+
+.overflow-hidden-scrollbar.scrolling::-webkit-scrollbar-thumb {
+  background: #888; /* Optional: scrollbar thumb color */
+  border-radius: 10px; /* Optional: rounded corners */
+}
+
+.overflow-hidden-scrollbar.scrolling::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Optional: thumb hover color */
+}
+
+/* //////////////////////////// */
+/* Hide scrollbar initially */
+.overflow-hidden-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.overflow-hidden-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Show scrollbar when scrolling class is added */
+.overflow-hidden-scrollbar.scrolling::-webkit-scrollbar {
+  display: block;
+}
+
+.overflow-hidden-scrollbar.scrolling {
+  -ms-overflow-style: auto; /* IE and Edge */
+  scrollbar-width: auto; /* Firefox */
+}
+
+/* custom radio button */
+.custom-radio {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 50%;
+  border: 2px solid #d1d5db;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 0.5rem;
+}
+
+.custom-radio:checked {
+  background-color: #d1d5db;
+  border-color: #d1d5db;
+  border: 2px solid #d1d5db;
+}
+
+.custom-radio:checked::before {
+  content: "";
+  display: block;
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  background: #0d3276;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+/* custom radio button css ends */
+
+/* text area - hide resize tip  */
+.resize-none {
+  resize: none;
+}
+
+
+/* map svg container styles */
+.svg-container {
+  /* width: 600px; 
+  height: 500px; */
+  /* width: 100%;
+  height: 100%; */
+  margin: 0 auto; 
+  position: relative; 
+}
+
+/* .svg-container svg {
+  width: 100%;
+  height: auto;
+} */
+
+/* @media (max-width: 1024px) {
+  .svg-container {
+    @apply  w-full h-full ;
+  }
+
+  .svg-container svg {
+    @apply  w-full h-full  ;
+  }
+} */
+
+/* Media query for screens below 768px */
+/* @media (max-width: 768px) {
+  .svg-container {
+   
+    @apply  w-full h-full ;
+  }
+
+  .svg-container svg {
+    height: 50%;
+   
+  }
+} */
+
+.tooltip {
+  position: absolute;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 5px;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  pointer-events: none; 
+  
+}
+/* map svg styles ends */
+
+
+/* storyblok rich text schema */
+.rich-text-content {
+  /* General styles for rich text content */
+  line-height: 1.6;
+  color: #333;
+  /* font-family: 'Manrope', sans-serif; */
+}
+
+.rich-text-content h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 1.5rem 0;
+}
+
+.rich-text-content h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 1.25rem 0;
+}
+
+.rich-text-content h3 {
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
+.rich-text-content h4 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0.75rem 0;
+}
+
+.rich-text-content p {
+  font-size: 1rem;
+  margin: 1rem 0;
+}
+
+.rich-text-content a {
+  color: #0070f3;
+  text-decoration: underline;
+}
+
+.rich-text-content img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1rem 0;
+}
+
+.rich-text-content ul {
+  padding-left: 1.5rem;
+  margin: 1rem 0;
+}
+
+.rich-text-content ul li {
+  list-style-type: disc;
+  margin-bottom: 0.5rem;
+}
+
+.rich-text-content ol {
+  padding-left: 1.5rem;
+  margin: 1rem 0;
+}
+
+.rich-text-content ol li {
+  list-style-type: decimal;
+  margin-bottom: 0.5rem;
+}
+
+.rich-text-content blockquote {
+  border-left: 4px solid #eee;
+  padding-left: 1rem;
+  margin: 1rem 0;
+  font-style: italic;
+  color: #666;
+}
+
+.rich-text-content code {
+  background: #f5f5f5;
+  border-radius: 4px;
+  padding: 0.2rem 0.4rem;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.rich-text-content pre {
+  background: #f5f5f5;
+  border-radius: 4px;
+  padding: 1rem;
+  overflow-x: auto;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.rich-text-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+.rich-text-content table, .rich-text-content th, .rich-text-content td {
+  border: 1px solid #ddd;
+}
+
+.rich-text-content th, .rich-text-content td {
+  padding: 0.5rem;
+  text-align: left;
+}
+
+.rich-text-content th {
+  background-color: #f9f9f9;
+  font-weight: bold;
+}
+
+.rich-text-content .highlight {
+  background-color: #ffffcc;
+  padding: 0.2rem 0.4rem;
+}
+
+
+/* storyblok schema ends */
+
+
+/* draggable cursor */
+.draggable {
+  cursor: grab;
+}
+.draggable:active {
+  cursor: grabbing;
+}
+
+/* blog card  */
+.card {
+  position: relative;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.card-enter {
+  transform: scale(0.8);
+  opacity: 0;
+}
+
+.card-enter-active {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.card-exit {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.card-exit-active {
+  transform: scale(0.8);
+  opacity: 0;
+}
